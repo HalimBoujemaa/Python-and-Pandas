@@ -62,3 +62,60 @@ try:
 except AttributeError:
     print("Oops! That attribute doesn't exist")
 ```
+
+#### # Function 
+A named block of reusable code that can be executed multiple times. Defined using the def keyword.
+
+#### # Parameters 
+Variables that serve as inputs to a function. Specified within the parentheses in the function definition.
+
+#### # Return statement 
+Returns a value from the function. Used to define the output of a function.
+
+#### # Default parameter value 
+A value automatically assigned to a parameter if no argument is passed for that parameter in the function call. Defined using = in the function definition.
+
+#### # Code block
+The lines of code associated with and controlled by a programming statement. Indented under the statement.
+
+#### # Function with two parameters 
+def add_nums(num1, num2):
+    sum = num1 + num2
+    return sum
+#### # Call function using parameters  
+result = add_nums(5, 3)
+print(result)
+#### # Function with default parameter
+def hello(name="John"):
+    print("Hello " + name)
+hello() # Uses default name 
+hello("Jane") # Overrides default
+#### # Function with code block
+def print_lines():
+    print("Line 1")
+    print("Line 2")
+    print("Line 3")
+    
+print_lines()
+
+#### # Decorator
+A function that takes another function as an argument, adds functionality, and returns the decorated function.
+
+#### # Function decorator that times execution
+```python
+from time import time
+def timer(func):
+    # Nested wrapper function
+    def wrapper():
+        start = time()
+        func()
+        end = time()
+        print(f"Duration: {end-start}")
+    return wrapper
+@timer
+def sum_nums():
+    result = 0
+    for x in range(1000000):
+        result += x
+sum_nums()
+```
