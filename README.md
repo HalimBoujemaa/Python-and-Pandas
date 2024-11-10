@@ -308,3 +308,143 @@ print(next(iterator)) # 1
 chars = ["c" for c in "hello"]
 print(chars) # ['h', 'e', 'l', 'l', 'o']
 ```
+
+#### #DataFrame - A 2-dimensional labeled data structure with columns of potentially different types. Like a spreadsheet or SQL table.
+
+```python
+import pandas as pd
+
+//Create a DataFrame from dictionaries 
+data = {'name':['John', 'Mary', 'Peter'], 
+        'age':[25, 30, 35]}
+df = pd.DataFrame(data) 
+
+print(df)
+//Print the DataFrame
+```
+
+#### # Column - A vertical set of values in a DataFrame. Each column has a name and contains values of the same data type.
+
+//Access the 'name' column
+print(df['name'])
+
+#### # Row - A horizontal entry in a DataFrame. Each row contains an observation with values for each column.
+
+//Access the first row
+print(df.iloc[0])
+
+#### # iloc - Integer-location based indexer to select DataFrame rows and columns by index.
+
+//Select rows 0 and 1
+print(df.iloc[[0, 1]])
+
+#### # loc - Label-location based indexer to select DataFrame rows and columns by column name.
+
+//Select rows by condition 
+print(df.loc[df['age'] > 25])
+
+
+#### # Code Examples
+
+Using Pandas to Plot Height vs Weight
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+# Create dummy DataFrame
+data = {'name': ['John', 'Mary', 'Sam', 'Sarah'], 
+        'height': [183, 167, 174, 160],
+        'weight': [89, 56, 68, 50]}
+df = pd.DataFrame(data)
+# Scatter plot height vs weight
+df.plot.scatter(x='height', y='weight')
+# Set labels and title
+plt.xlabel('Height (cm)') 
+plt.ylabel('Weight (kg)')
+plt.title('Height vs Weight')
+plt.tight_layout()
+plt.show()
+# Function to filter by height range 
+def filter_height(df, min_ht, max_ht):
+    return df[(df['height'] >= min_ht) & (df['height'] <= max_ht)]
+# Filter rows between 160cm and 170cm height
+result = filter_height(df, 160, 170)
+print(result)
+```
+
+
+#### #Comparison operators - Operators like ==, !=, >, < etc. used to compare values and return Boolean true/false results. Important for filtering data.
+
+#### #Boolean operators - Operators like &, |, ~ used to combine comparison expressions and return true/false results. Important for complex filter logic.
+
+#### #Filters - Boolean indexed arrays that allow selecting subsets of data meeting comparison criteria. Created using comparison/Boolean operators.
+
+#### #loc accessor - Accessor used to select/filter data from a DataFrame by label or Boolean array.
+
+#### #isin() method - Method to filter data using a list of values to check for set membership. Useful alternative to repeated equality checks.
+
+```python
+import pandas as pd
+df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
+# Comparison operators 
+print(df[df['A'] == 2]) # Simple filter
+# Boolean operators
+filter = (df['A'] > 1) & (df['B'] == 6)  
+print(df[filter]) # Complex filter
+# Filters with loc accessor
+filter = df['A'] > 1
+print(df.loc[filter]) 
+# isin() method
+values = [2, 5]
+filter = df['A'].isin(values) 
+print(df[filter])
+```
+
+
+```python
+import pandas as pd
+import numpy as np  
+# Sample fruit price DataFrame
+data = {'Fruit': ['Apple', 'Banana', 'Orange'],  
+        'Price': [2.5, 1.2, 3.3]}
+df = pd.DataFrame(data)
+# Calculate average price  
+avg_price = df['Price'].mean()  
+print(avg_price)
+# Filter prices > average
+filter = df['Price'] > avg_price
+df.loc[filter]
+# isin() filter on fruits   
+fruit_filter = df['Fruit'].isin(['Apple','Orange']) 
+df.loc[fruit_filter]
+```
+
+#### #numpy.ndarray - 
+n-dimensional Numpy array, the core object that underpins Pandas DataFrames
+
+#### #pyspark.sql.DataFrame - 
+Distributed dataframe object in PySpark for working with large datasets
+
+#### #dask.dataframe.DataFrame - 
+Dask dataframe that partitions Pandas dataframe across multiple cores
+
+#### #np.random.randn() - 
+Generate an ndarray with random values from a normal distribution
+
+#### #df.persist() - 
+Trigger caching of a PySpark dataframe into memory or disk storage
+
+Pandas Code Examples
+
+```python
+import pandas as pd
+import numpy as np
+# numpy.ndarray
+data = np.random.randn(5, 4)  # Generate 5x4 ndarray 
+df = pd.DataFrame(data) # Underlying structure of Pandas DataFrame
+print(df)
+# np.random.randn()  
+df = pd.DataFrame(np.random.randn(5, 4), 
+                  columns=['A', 'B', 'C', 'D']) 
+print(df)
+```
