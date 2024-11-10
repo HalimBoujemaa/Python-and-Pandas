@@ -186,3 +186,43 @@ Anything that has a length of zero. This includes the empty string, "".
 
 print( 0 or 'a' )
 print( 0 and 0.0 )
+
+
+
+#### #List comprehension: A compact way to process and generate lists in Python.
+
+//Double each number in a list 
+numbers = [1, 2, 3, 4]
+doubled = [x*2 for x in numbers] 
+print(doubled) # [2, 4, 6, 8]
+
+#### #Lambda function: An anonymous inline function defined without a name.
+
+//Define a lambda function to cube numbers  
+cube = lambda x: x**3
+print(cube(3)) # 27
+
+#### #Numpy array: A fast numeric array structure in Python provided by Numpy.
+import numpy as np
+
+//Create a Numpy array
+arr = np.array([1, 2, 3])  
+print(arr) # [1 2 3]
+
+#### #Pandas DataFrame: 
+A tabular data structure provided by Pandas for data analysis.
+import pandas as pd
+//Create a Pandas DataFrame  
+data = {'Name': ['Alice', 'Bob'], 'Age': [25, 30]}
+df = pd.DataFrame(data) 
+print(df)
+
+#### # Matplotlib: 
+A Python plotting library for data visualization.
+import matplotlib.pyplot as plt
+
+//Simple Matplotlib line plot
+x = [1, 2, 3, 4] 
+y = [2, 4, 6, 8]
+plt.plot(x, y)  
+plt.show()
