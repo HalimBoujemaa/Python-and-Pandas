@@ -226,3 +226,85 @@ x = [1, 2, 3, 4]
 y = [2, 4, 6, 8]
 plt.plot(x, y)  
 plt.show()
+
+
+#### #Dictionary - An unordered collection of key-value pairs used to store data values. Dictionaries are written with curly braces {} and contain keys and values separated by a colon.
+
+#### #Key - The unique identifier used to access values in a dictionary. Keys can be strings, numbers, or other immutable objects.
+
+#### #Value - The data associated with each key. Values can be numbers, strings, lists, or other objects.
+
+```python
+//Create a dictionary
+dict1 = {"key1": "value1", "key2": 2} 
+//Access value by key  
+print(dict1["key1"])
+//Add new key-value
+dict1["key3"] = "value3"
+print(dict1)
+```
+
+Example of dictionary in Bash
+
+```python
+//Create a dictionary
+dict1 = {"key1": "value1", "key2": 2} 
+//Access value by key  
+print(dict1["key1"])
+//Add new key-value
+dict1["key3"] = "value3"
+print(dict1)
+```
+
+#### #Set - An unordered collection of unique elements. Sets are written with curly braces {}
+
+#### #Set operations - Methods to interact with sets like union, intersection, difference and symmetric difference.
+
+```python
+//Create a set
+set1 = {"value1", "value2", "value3"}
+//Add new element  
+set1.add("value4")
+print(set1)
+//Set union
+set2 = {"value4", "value5", "value6"}
+set3 = set1 | set2 
+print(set3) 
+//Set intersection 
+set4 = set1 & set2
+print(set4)
+//Set difference
+set5 = set1 - set2 
+print(set5)
+```
+
+#### #List Comprehension - A concise syntax for creating lists that applies a function or operation to elements of an iterable
+
+#### #Generator - A function that returns an iterator object which yields one item at a time instead of returning a whole list
+
+#### #yield - A keyword used in generator functions to return a value from the function while retaining state
+
+#### #Iterable - An object that can return its members one at a time, allowing it to be iterated over in a loop
+
+#### #Iterator - An object that represents a stream of data that can be iterated over
+
+```python
+//List comprehension with for loop to cube numbers
+nums = [1, 2, 3, 4]
+cubes = [num**3 for num in nums] 
+print(cubes) # [1, 8, 27, 64]
+//Generator function yields numbers one by one 
+def num_sequence(n):
+    for i in range(n): 
+        yield i
+seq = num_sequence(5)
+print(next(seq)) # 0
+print(next(seq)) # 1 
+//Iterator from generator allows iteration
+iterator = iter(num_sequence(3))
+print(next(iterator)) # 0 
+print(next(iterator)) # 1
+//Strings are iterable 
+chars = ["c" for c in "hello"]
+print(chars) # ['h', 'e', 'l', 'l', 'o']
+```
